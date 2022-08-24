@@ -1031,7 +1031,7 @@ namespace s2industries.ZUGFeRD
         } // !SetPaymentMeans()
 
         public void SetPaymentMeansForFinancialCard(PaymentMeansTypeCodes paymentMeansTypeCode,
-            string financialCardId = null, string financialCardCardholder = null, string paymentMeansInformation = "")
+            string financialCardLastFourDigits = null, string financialCardCardholder = null, string paymentMeansInformation = "")
         {
             this.PaymentMeans = new PaymentMeans
             {
@@ -1039,7 +1039,7 @@ namespace s2industries.ZUGFeRD
                 Information = paymentMeansInformation,
                 FinancialCard = new FinancialCard
                 {
-                    Id = financialCardId,
+                    Id = financialCardLastFourDigits,
                     CardholderName = financialCardCardholder
                 }
             };

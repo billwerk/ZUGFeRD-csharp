@@ -702,10 +702,9 @@ namespace s2industries.ZUGFeRD
 
                         if (this.Descriptor.PaymentMeans.FinancialCard != null)
                         {
-                            //BR-51: The last 4 to 6 digits of the Payment card primary account number (BT-87) shall be present if Payment card information (BG-18) is provided in the Invoice.
-                            var last4Digits = Descriptor.PaymentMeans.FinancialCard.Id.Substring(Descriptor.PaymentMeans.FinancialCard.Id.Length - 4, 4);
                             Writer.WriteStartElement("ram:ApplicableTradeSettlementFinancialCard", Profile.Comfort | Profile.Extended | Profile.XRechnung1 | Profile.XRechnung);
-                            _writeOptionalElementString(Writer, "ram:ID", last4Digits);
+                            //BR-51: The last 4 to 6 digits of the Payment card primary account number (BT-87) shall be present if Payment card information (BG-18) is provided in the Invoice.
+                            _writeOptionalElementString(Writer, "ram:ID", Descriptor.PaymentMeans.FinancialCard.Id);
                             _writeOptionalElementString(Writer, "ram:CardholderName", Descriptor.PaymentMeans.FinancialCard.CardholderName);
                             Writer.WriteEndElement(); // !ram:ApplicableTradeSettlementFinancialCard
                         }
@@ -726,10 +725,9 @@ namespace s2industries.ZUGFeRD
 
                         if (this.Descriptor.PaymentMeans.FinancialCard != null)
                         {
-                            //BR-51: The last 4 to 6 digits of the Payment card primary account number (BT-87) shall be present if Payment card information (BG-18) is provided in the Invoice.
-                            var last4Digits = Descriptor.PaymentMeans.FinancialCard.Id.Substring(Descriptor.PaymentMeans.FinancialCard.Id.Length - 4, 4);
                             Writer.WriteStartElement("ram:ApplicableTradeSettlementFinancialCard", Profile.Comfort | Profile.Extended | Profile.XRechnung1 | Profile.XRechnung);
-                            _writeOptionalElementString(Writer, "ram:ID", last4Digits);
+                            //BR-51: The last 4 to 6 digits of the Payment card primary account number (BT-87) shall be present if Payment card information (BG-18) is provided in the Invoice.
+                            _writeOptionalElementString(Writer, "ram:ID", Descriptor.PaymentMeans.FinancialCard.Id);
                             _writeOptionalElementString(Writer, "ram:CardholderName", Descriptor.PaymentMeans.FinancialCard.CardholderName);
                             Writer.WriteEndElement(); // !ram:ApplicableTradeSettlementFinancialCard
                         }
